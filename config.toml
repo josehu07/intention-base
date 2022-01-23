@@ -1,0 +1,11 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "App Intention Base"
+
+theme = "hugo-book"
+
+[params]
+BookSection = "*"
+BookRepo = "https://github.com/josehu07/intention-base"
+BookCommitPath = "commit"
+BookEditPath = "edit/main"
