@@ -6,14 +6,14 @@
 Config & Command #  Config:
  Memtable size limit: default (4MB) SSTable file size limit: default (2MB)  Command:
 ./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/a-load.txt Open Dirty DB #  Resource flow graphs:
-DBImpl::Recover #  ">
+DBImpl::Recover~1 (rebuild from .log) #  ">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="Open">
 <meta property="og:description" content="LevelDB - Open #  Opening a LevelDB instance, re-building the state from the .log file left by the last close, saving it as a new level-0 table.
 Config & Command #  Config:
  Memtable size limit: default (4MB) SSTable file size limit: default (2MB)  Command:
 ./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/a-load.txt Open Dirty DB #  Resource flow graphs:
-DBImpl::Recover #  ">
+DBImpl::Recover~1 (rebuild from .log) #  ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.josehu.com/intention-base/kvstore/leveldb/open/"><meta property="article:section" content="kvstore">
 <title>Open | App Intention Base</title>
@@ -21,7 +21,7 @@ DBImpl::Recover #  ">
 <link rel=icon href=/intention-base/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/intention-base/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous>
 <script defer src=/intention-base/flexsearch.min.js></script>
-<script defer src=/intention-base/en.search.min.43a9daf19a6602bf633f03f00f0726c3c9f16d3442204fadbfa15251ed7ea069.js integrity="sha256-Q6na8ZpmAr9jPwPwDwcmw8nxbTRCIE+tv6FSUe1+oGk=" crossorigin=anonymous></script>
+<script defer src=/intention-base/en.search.min.7a4e780b59398000534090520a14464fa66cc48a82d3dfd7a03a5b7feaeb6e51.js integrity="sha256-ek54C1k5gABTQJBSChRGT6ZsxIqC09/XoDpbf+rrblE=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -139,7 +139,7 @@ DBImpl::Recover #  ">
 <li><a href=#config--command>Config & Command</a></li>
 <li><a href=#open-dirty-db>Open Dirty DB</a>
 <ul>
-<li><a href=#dbimplrecover><code>DBImpl::Recover</code></a></li>
+<li><a href=#dbimplrecover1-rebuild-from-log><code>DBImpl::Recover~1</code> (rebuild from <code>.log</code>)</a></li>
 </ul>
 </li>
 </ul>
@@ -168,9 +168,9 @@ Open Dirty DB
 </h2>
 <a href=https://www.josehu.com/intention-base///kvstore/leveldb/vis-open.html><img src=https://www.josehu.com/intention-base///kvstore/leveldb/vis-open.svg></a>
 <p>Resource flow graphs:</p>
-<h3 id=dbimplrecover>
-<code>DBImpl::Recover</code>
-<a class=anchor href=#dbimplrecover>#</a>
+<h3 id=dbimplrecover1-rebuild-from-log>
+<code>DBImpl::Recover~1</code> (rebuild from <code>.log</code>)
+<a class=anchor href=#dbimplrecover1-rebuild-from-log>#</a>
 </h3>
 <a href=https://www.josehu.com/intention-base///kvstore/leveldb/rtrace-open.svg><img src=https://www.josehu.com/intention-base///kvstore/leveldb/rtrace-open.svg></a>
 </article>
@@ -196,7 +196,7 @@ Open Dirty DB
 <li><a href=#config--command>Config & Command</a></li>
 <li><a href=#open-dirty-db>Open Dirty DB</a>
 <ul>
-<li><a href=#dbimplrecover><code>DBImpl::Recover</code></a></li>
+<li><a href=#dbimplrecover1-rebuild-from-log><code>DBImpl::Recover~1</code> (rebuild from <code>.log</code>)</a></li>
 </ul>
 </li>
 </ul>

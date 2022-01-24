@@ -6,14 +6,14 @@
 Config & Command #  Config:
  Memtable size limit: 8KB SSTable file size limit: 8KB  Command:
 ./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/a-load.txt --mlim 8192 --flim 8192 ./ycsbcli -d /tmp/helios_leveldb/dbdir -f op-traces/get.txt Get w/ mmap #  Resource flow graphs:
-Version::ForEachOverlapping #  NULL">
+Version::ForEachOverlapping~1 #  NULL">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="Get">
 <meta property="og:description" content="LevelDB - Get #  Single Get of the latest value (which is at level 2) of a given key from LSM tree.
 Config & Command #  Config:
  Memtable size limit: 8KB SSTable file size limit: 8KB  Command:
 ./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/a-load.txt --mlim 8192 --flim 8192 ./ycsbcli -d /tmp/helios_leveldb/dbdir -f op-traces/get.txt Get w/ mmap #  Resource flow graphs:
-Version::ForEachOverlapping #  NULL">
+Version::ForEachOverlapping~1 #  NULL">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.josehu.com/intention-base/kvstore/leveldb/get/"><meta property="article:section" content="kvstore">
 <title>Get | App Intention Base</title>
@@ -21,7 +21,7 @@ Version::ForEachOverlapping #  NULL">
 <link rel=icon href=/intention-base/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/intention-base/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous>
 <script defer src=/intention-base/flexsearch.min.js></script>
-<script defer src=/intention-base/en.search.min.43a9daf19a6602bf633f03f00f0726c3c9f16d3442204fadbfa15251ed7ea069.js integrity="sha256-Q6na8ZpmAr9jPwPwDwcmw8nxbTRCIE+tv6FSUe1+oGk=" crossorigin=anonymous></script>
+<script defer src=/intention-base/en.search.min.7a4e780b59398000534090520a14464fa66cc48a82d3dfd7a03a5b7feaeb6e51.js integrity="sha256-ek54C1k5gABTQJBSChRGT6ZsxIqC09/XoDpbf+rrblE=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -139,12 +139,13 @@ Version::ForEachOverlapping #  NULL">
 <li><a href=#config--command>Config & Command</a></li>
 <li><a href=#get-w-mmap>Get w/ mmap</a>
 <ul>
-<li><a href=#versionforeachoverlapping><code>Version::ForEachOverlapping</code></a></li>
+<li><a href=#versionforeachoverlapping1><code>Version::ForEachOverlapping~1</code></a></li>
 </ul>
 </li>
 <li><a href=#get-w-read>Get w/ read</a>
 <ul>
-<li><a href=#versionforeachoverlapping-1><code>Version::ForEachOverlapping</code></a></li>
+<li><a href=#versionforeachoverlapping1-search-chain><code>Version::ForEachOverlapping~1</code> (search chain)</a></li>
+<li><a href=#tablecacheget12-single-check-in-one-sstable><code>TableCache::Get~12</code> (single check in one sstable)</a></li>
 </ul>
 </li>
 </ul>
@@ -174,9 +175,9 @@ Get w/ mmap
 </h2>
 <a href=https://www.josehu.com/intention-base///kvstore/leveldb/vis-get-mmap.html><img src=https://www.josehu.com/intention-base///kvstore/leveldb/vis-get-mmap.svg></a>
 <p>Resource flow graphs:</p>
-<h3 id=versionforeachoverlapping>
-<code>Version::ForEachOverlapping</code>
-<a class=anchor href=#versionforeachoverlapping>#</a>
+<h3 id=versionforeachoverlapping1>
+<code>Version::ForEachOverlapping~1</code>
+<a class=anchor href=#versionforeachoverlapping1>#</a>
 </h3>
 <p>NULL</p>
 <h2 id=get-w-read>
@@ -185,11 +186,17 @@ Get w/ read
 </h2>
 <a href=https://www.josehu.com/intention-base///kvstore/leveldb/vis-get-read.html><img src=https://www.josehu.com/intention-base///kvstore/leveldb/vis-get-read.svg></a>
 <p>Resource flow graphs:</p>
-<h3 id=versionforeachoverlapping-1>
-<code>Version::ForEachOverlapping</code>
-<a class=anchor href=#versionforeachoverlapping-1>#</a>
+<h3 id=versionforeachoverlapping1-search-chain>
+<code>Version::ForEachOverlapping~1</code> (search chain)
+<a class=anchor href=#versionforeachoverlapping1-search-chain>#</a>
 </h3>
 <a href=https://www.josehu.com/intention-base///kvstore/leveldb/rtrace-get-read.svg><img src=https://www.josehu.com/intention-base///kvstore/leveldb/rtrace-get-read.svg></a>
+<h3 id=tablecacheget12-single-check-in-one-sstable>
+<code>TableCache::Get~12</code> (single check in one sstable)
+<a class=anchor href=#tablecacheget12-single-check-in-one-sstable>#</a>
+</h3>
+<p>(target data block happens to be the last block before index)</p>
+<a href=https://www.josehu.com/intention-base///kvstore/leveldb/rtrace-get-read-1table.svg><img src=https://www.josehu.com/intention-base///kvstore/leveldb/rtrace-get-read-1table.svg></a>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
@@ -213,12 +220,13 @@ Get w/ read
 <li><a href=#config--command>Config & Command</a></li>
 <li><a href=#get-w-mmap>Get w/ mmap</a>
 <ul>
-<li><a href=#versionforeachoverlapping><code>Version::ForEachOverlapping</code></a></li>
+<li><a href=#versionforeachoverlapping1><code>Version::ForEachOverlapping~1</code></a></li>
 </ul>
 </li>
 <li><a href=#get-w-read>Get w/ read</a>
 <ul>
-<li><a href=#versionforeachoverlapping-1><code>Version::ForEachOverlapping</code></a></li>
+<li><a href=#versionforeachoverlapping1-search-chain><code>Version::ForEachOverlapping~1</code> (search chain)</a></li>
+<li><a href=#tablecacheget12-single-check-in-one-sstable><code>TableCache::Get~12</code> (single check in one sstable)</a></li>
 </ul>
 </li>
 </ul>

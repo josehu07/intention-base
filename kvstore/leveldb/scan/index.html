@@ -2,10 +2,18 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="LevelDB - Scan #  TODO">
+<meta name=description content="LevelDB - Scan #  Range query over a sufficiently large range using the Iterator interface, across an LSM tree image of up to level-2.
+Config & Command #  Config:
+ Memtable size limit: 8KB SSTable file size limit: 8KB  Command:
+./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/d-load.txt --mlim 8192 --flim 8192 ./ycsbcli -d /tmp/helios_leveldb/dbdir -f op-traces/scan.txt Range Query #  Resource flow graphs:
+do_ycsb~1 (main iterator loop) #  IteratorWrapper::Next~606 (single step into one sstable) #  ">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="Scan">
-<meta property="og:description" content="LevelDB - Scan #  TODO">
+<meta property="og:description" content="LevelDB - Scan #  Range query over a sufficiently large range using the Iterator interface, across an LSM tree image of up to level-2.
+Config & Command #  Config:
+ Memtable size limit: 8KB SSTable file size limit: 8KB  Command:
+./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/d-load.txt --mlim 8192 --flim 8192 ./ycsbcli -d /tmp/helios_leveldb/dbdir -f op-traces/scan.txt Range Query #  Resource flow graphs:
+do_ycsb~1 (main iterator loop) #  IteratorWrapper::Next~606 (single step into one sstable) #  ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.josehu.com/intention-base/kvstore/leveldb/scan/"><meta property="article:section" content="kvstore">
 <title>Scan | App Intention Base</title>
@@ -13,7 +21,7 @@
 <link rel=icon href=/intention-base/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/intention-base/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous>
 <script defer src=/intention-base/flexsearch.min.js></script>
-<script defer src=/intention-base/en.search.min.43a9daf19a6602bf633f03f00f0726c3c9f16d3442204fadbfa15251ed7ea069.js integrity="sha256-Q6na8ZpmAr9jPwPwDwcmw8nxbTRCIE+tv6FSUe1+oGk=" crossorigin=anonymous></script>
+<script defer src=/intention-base/en.search.min.7a4e780b59398000534090520a14464fa66cc48a82d3dfd7a03a5b7feaeb6e51.js integrity="sha256-ek54C1k5gABTQJBSChRGT6ZsxIqC09/XoDpbf+rrblE=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -126,14 +134,52 @@
 </label>
 </div>
 <aside class="hidden clearfix">
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#config--command>Config & Command</a></li>
+<li><a href=#range-query>Range Query</a>
+<ul>
+<li><a href=#do_ycsb1-main-iterator-loop><code>do_ycsb~1</code> (main iterator loop)</a></li>
+<li><a href=#iteratorwrappernext606-single-step-into-one-sstable><code>IteratorWrapper::Next~606</code> (single step into one sstable)</a></li>
+</ul>
+</li>
+</ul>
+</nav>
 </aside>
 </header>
 <article class=markdown><h1 id=leveldb---scan>
 LevelDB - Scan
 <a class=anchor href=#leveldb---scan>#</a>
 </h1>
-<p>TODO</p>
+<p>Range query over a sufficiently large range using the <code>Iterator</code> interface, across an LSM tree image of up to level-2.</p>
+<h2 id=config--command>
+Config & Command
+<a class=anchor href=#config--command>#</a>
+</h2>
+<p>Config:</p>
+<ul>
+<li>Memtable size limit: 8KB</li>
+<li>SSTable file size limit: 8KB</li>
+</ul>
+<p>Command:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>./ycsbcli -d /tmp/helios_leveldb/dbdir -v <span style=color:#ae81ff>64</span> -f ycsb-traces/d-load.txt --mlim <span style=color:#ae81ff>8192</span> --flim <span style=color:#ae81ff>8192</span>
+./ycsbcli -d /tmp/helios_leveldb/dbdir -f op-traces/scan.txt
+</code></pre></div><h2 id=range-query>
+Range Query
+<a class=anchor href=#range-query>#</a>
+</h2>
+<a href=https://www.josehu.com/intention-base///kvstore/leveldb/vis-scan.html><img src=https://www.josehu.com/intention-base///kvstore/leveldb/vis-scan.svg></a>
+<p>Resource flow graphs:</p>
+<h3 id=do_ycsb1-main-iterator-loop>
+<code>do_ycsb~1</code> (main iterator loop)
+<a class=anchor href=#do_ycsb1-main-iterator-loop>#</a>
+</h3>
+<a href=https://www.josehu.com/intention-base///kvstore/leveldb/rtrace-scan.svg><img src=https://www.josehu.com/intention-base///kvstore/leveldb/rtrace-scan.svg></a>
+<h3 id=iteratorwrappernext606-single-step-into-one-sstable>
+<code>IteratorWrapper::Next~606</code> (single step into one sstable)
+<a class=anchor href=#iteratorwrappernext606-single-step-into-one-sstable>#</a>
+</h3>
+<a href=https://www.josehu.com/intention-base///kvstore/leveldb/rtrace-scan-1table.svg><img src=https://www.josehu.com/intention-base///kvstore/leveldb/rtrace-scan-1table.svg></a>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
@@ -152,7 +198,17 @@ LevelDB - Scan
 </div>
 <aside class=book-toc>
 <div class=book-toc-content>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#config--command>Config & Command</a></li>
+<li><a href=#range-query>Range Query</a>
+<ul>
+<li><a href=#do_ycsb1-main-iterator-loop><code>do_ycsb~1</code> (main iterator loop)</a></li>
+<li><a href=#iteratorwrappernext606-single-step-into-one-sstable><code>IteratorWrapper::Next~606</code> (single step into one sstable)</a></li>
+</ul>
+</li>
+</ul>
+</nav>
 </div>
 </aside>
 </main>

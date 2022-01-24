@@ -4,16 +4,28 @@ Config &amp;amp; Command # Config:
 Memtable size limit: default (4MB) SSTable file size limit: default (2MB) Command:
 ./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/a-load.txt Open Dirty DB #
 Resource flow graphs:
-DBImpl::Recover #</description></item><item><title>Put</title><link>https://www.josehu.com/intention-base/kvstore/leveldb/put/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.josehu.com/intention-base/kvstore/leveldb/put/</guid><description>LevelDB - Put # Single Put of a new key-value pair into LSM tree.
+DBImpl::Recover~1 (rebuild from .log) #</description></item><item><title>Put</title><link>https://www.josehu.com/intention-base/kvstore/leveldb/put/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.josehu.com/intention-base/kvstore/leveldb/put/</guid><description>LevelDB - Put # Single Put of a new key-value pair into LSM tree.
 Config &amp;amp; Command # Config:
 Memtable size limit: 8KB SSTable file size limit: 8KB Command:
 ./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/a-load.txt --mlim 8192 --flim 8192 ./ycsbcli -d /tmp/helios_leveldb/dbdir -f op-traces/put.txt [-s] Put w/o sync #
 Resource flow graphs:
-DBImpl::Write # NULL
+DBImpl::Write~1 # NULL
 Put w/ sync #
 Resource flow graphs:</description></item><item><title>Get</title><link>https://www.josehu.com/intention-base/kvstore/leveldb/get/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.josehu.com/intention-base/kvstore/leveldb/get/</guid><description>LevelDB - Get # Single Get of the latest value (which is at level 2) of a given key from LSM tree.
 Config &amp;amp; Command # Config:
 Memtable size limit: 8KB SSTable file size limit: 8KB Command:
 ./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/a-load.txt --mlim 8192 --flim 8192 ./ycsbcli -d /tmp/helios_leveldb/dbdir -f op-traces/get.txt Get w/ mmap #
 Resource flow graphs:
-Version::ForEachOverlapping # NULL</description></item><item><title>Scan</title><link>https://www.josehu.com/intention-base/kvstore/leveldb/scan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.josehu.com/intention-base/kvstore/leveldb/scan/</guid><description>LevelDB - Scan # TODO</description></item><item><title>Compaction</title><link>https://www.josehu.com/intention-base/kvstore/leveldb/compaction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.josehu.com/intention-base/kvstore/leveldb/compaction/</guid><description>LevelDB - Compaction # TODO</description></item></channel></rss>
+Version::ForEachOverlapping~1 # NULL</description></item><item><title>Scan</title><link>https://www.josehu.com/intention-base/kvstore/leveldb/scan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.josehu.com/intention-base/kvstore/leveldb/scan/</guid><description>LevelDB - Scan # Range query over a sufficiently large range using the Iterator interface, across an LSM tree image of up to level-2.
+Config &amp;amp; Command # Config:
+Memtable size limit: 8KB SSTable file size limit: 8KB Command:
+./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/d-load.txt --mlim 8192 --flim 8192 ./ycsbcli -d /tmp/helios_leveldb/dbdir -f op-traces/scan.txt Range Query #
+Resource flow graphs:
+do_ycsb~1 (main iterator loop) #
+IteratorWrapper::Next~606 (single step into one sstable) #</description></item><item><title>Compaction</title><link>https://www.josehu.com/intention-base/kvstore/leveldb/compaction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.josehu.com/intention-base/kvstore/leveldb/compaction/</guid><description>LevelDB - Compaction # Compacting higher-level sstables and pushing the records to lower levels.
+Config &amp;amp; Command # Config:
+Memtable size limit: 8KB SSTable file size limit: 8KB Command:
+./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/a-load.txt --mlim 8192 --flim 8192 Compaction Thread Invocation #
+Resource flow graphs:
+DBImpl::DoCompactionWork~1 (one compaction loop) #
+DBImpl::CompactMemTable~1 (pushing memtable to level-0) #</description></item></channel></rss>
