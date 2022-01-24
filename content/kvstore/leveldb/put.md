@@ -26,7 +26,7 @@ Command:
 
 ## Put w/o sync
 
-[{{< figure src="/kvstore/leveldb/vis-put-nosync.svg" >}}](/kvstore/leveldb/vis-put-nosync.html)
+{{< fig-with-link src="/kvstore/leveldb/vis-put-nosync.svg" ref="/kvstore/leveldb/vis-put-nosync.html" >}}
 
 Resource flow graphs:
 
@@ -37,10 +37,10 @@ NULL
 
 ## Put w/ sync
 
-[{{< figure src="/kvstore/leveldb/vis-put-sync.svg" >}}](/kvstore/leveldb/vis-put-sync.html)
+{{< fig-with-link src="/kvstore/leveldb/vis-put-sync.svg" ref="/kvstore/leveldb/vis-put-sync.html" >}}
 
 Resource flow graphs:
 
 ### `DBImpl::Write`
 
-[{{< figure src="/kvstore/leveldb/rtrace-put-sync.svg" >}}](/kvstore/leveldb/rtrace-put-sync.svg)
+{{< fig-with-link src="/kvstore/leveldb/rtrace-put-sync.svg" ref="/kvstore/leveldb/rtrace-put-sync.svg" >}}

@@ -1,0 +1,5 @@
+{{ if .IsNamedParams }}
+<a href="{{ .Site.BaseURL }}/{{ .Get "ref" }}" ><img src="{{ .Site.BaseURL }}/{{ .Get "src" }}"></a>
+{{ else }}
+<a href="{{ .Site.BaseURL }}/{{ .Get 1 }}" ><img src="{{ .Site.BaseURL }}/{{ .Get 0 }}"></a>
+{{ end }}

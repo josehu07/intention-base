@@ -25,10 +25,10 @@ Command:
 
 ## Open Dirty DB
 
-[{{< figure src="/kvstore/leveldb/vis-open.svg" >}}](/kvstore/leveldb/vis-open.html)
+{{< fig-with-link src="/kvstore/leveldb/vis-open.svg" ref="/kvstore/leveldb/vis-open.html" >}}
 
 Resource flow graphs:
 
 ### `DBImpl::Recover`
 
-[{{< figure src="/kvstore/leveldb/rtrace-open.svg" >}}](/kvstore/leveldb/rtrace-open.svg)
+{{< fig-with-link src="/kvstore/leveldb/rtrace-open.svg" ref="/kvstore/leveldb/rtrace-open.svg" >}}

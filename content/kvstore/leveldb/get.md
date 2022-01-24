@@ -26,7 +26,7 @@ Command:
 
 ## Get w/ mmap
 
-[{{< figure src="/kvstore/leveldb/vis-get-mmap.svg" >}}](/kvstore/leveldb/vis-get-mmap.html)
+{{< fig-with-link src="/kvstore/leveldb/vis-get-mmap.svg" ref="/kvstore/leveldb/vis-get-mmap.html" >}}
 
 Resource flow graphs:
 
@@ -37,10 +37,10 @@ NULL
 
 ## Get w/ read
 
-[{{< figure src="/kvstore/leveldb/vis-get-read.svg" >}}](/kvstore/leveldb/vis-get-read.html)
+{{< fig-with-link src="/kvstore/leveldb/vis-get-read.svg" ref="/kvstore/leveldb/vis-get-read.html" >}}
 
 Resource flow graphs:
 
 ### `Version::ForEachOverlapping`
 
-[{{< figure src="/kvstore/leveldb/rtrace-get-read.svg" >}}](/kvstore/leveldb/rtrace-get-read.svg)
+{{< fig-with-link src="/kvstore/leveldb/rtrace-get-read.svg" ref="/kvstore/leveldb/rtrace-get-read.svg" >}}
