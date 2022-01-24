@@ -29,6 +29,6 @@ Command:
 
 Resource flow graphs:
 
-### `DBImpl::Recover`
+### `DBImpl::Recover~1` (rebuild from `.log`)
 
 {{< fig-with-link src="/kvstore/leveldb/rtrace-open.svg" ref="/kvstore/leveldb/rtrace-open.svg" >}}

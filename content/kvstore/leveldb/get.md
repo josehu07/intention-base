@@ -30,7 +30,7 @@ Command:
 
 Resource flow graphs:
 
-### `Version::ForEachOverlapping`
+### `Version::ForEachOverlapping~1`
 
 NULL
 
@@ -41,6 +41,12 @@ NULL
 
 Resource flow graphs:
 
-### `Version::ForEachOverlapping`
+### `Version::ForEachOverlapping~1` (search chain)
 
 {{< fig-with-link src="/kvstore/leveldb/rtrace-get-read.svg" ref="/kvstore/leveldb/rtrace-get-read.svg" >}}
+
+### `TableCache::Get~12` (single check in one sstable)
+
+(target data block happens to be the last block before index)
+
+{{< fig-with-link src="/kvstore/leveldb/rtrace-get-read-1table.svg" ref="/kvstore/leveldb/rtrace-get-read-1table.svg" >}}

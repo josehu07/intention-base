@@ -30,7 +30,7 @@ Command:
 
 Resource flow graphs:
 
-### `DBImpl::Write`
+### `DBImpl::Write~1`
 
 NULL
 
@@ -41,6 +41,6 @@ NULL
 
 Resource flow graphs:
 
-### `DBImpl::Write`
+### `DBImpl::Write~1`
 
 {{< fig-with-link src="/kvstore/leveldb/rtrace-put-sync.svg" ref="/kvstore/leveldb/rtrace-put-sync.svg" >}}
