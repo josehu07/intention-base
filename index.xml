@@ -13,7 +13,8 @@ Memtable size limit: 8KB SSTable file size limit: 8KB Command:
 ./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/a-load.txt --mlim 8192 --flim 8192 ./ycsbcli -d /tmp/helios_leveldb/dbdir -f op-traces/put.txt [-s] Put w/o sync #
 Resource flow graphs:
 DBImpl::Write # NULL
-Put w/ sync #</description></item><item><title>Get</title><link>https://www.josehu.com/intention-base/kvstore/leveldb/get/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.josehu.com/intention-base/kvstore/leveldb/get/</guid><description>LevelDB - Get # Single Get of the latest value (which is at level 2) of a given key from LSM tree.
+Put w/ sync #
+Resource flow graphs:</description></item><item><title>Get</title><link>https://www.josehu.com/intention-base/kvstore/leveldb/get/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.josehu.com/intention-base/kvstore/leveldb/get/</guid><description>LevelDB - Get # Single Get of the latest value (which is at level 2) of a given key from LSM tree.
 Config &amp;amp; Command # Config:
 Memtable size limit: 8KB SSTable file size limit: 8KB Command:
 ./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/a-load.txt --mlim 8192 --flim 8192 ./ycsbcli -d /tmp/helios_leveldb/dbdir -f op-traces/get.txt Get w/ mmap #
