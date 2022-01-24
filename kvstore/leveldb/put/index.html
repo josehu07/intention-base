@@ -1,0 +1,240 @@
+<!doctype html><html lang=en-us dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="LevelDB - Put #  Single Put of a new key-value pair into LSM tree.
+Config & Command #  Config:
+ Memtable size limit: 8KB SSTable file size limit: 8KB  Command:
+./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/a-load.txt --mlim 8192 --flim 8192 ./ycsbcli -d /tmp/helios_leveldb/dbdir -f op-traces/put.txt [-s] Put w/o sync #   
+Resource flow graphs:
+DBImpl::Write #  NULL
+Put w/ sync #">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Put">
+<meta property="og:description" content="LevelDB - Put #  Single Put of a new key-value pair into LSM tree.
+Config & Command #  Config:
+ Memtable size limit: 8KB SSTable file size limit: 8KB  Command:
+./ycsbcli -d /tmp/helios_leveldb/dbdir -v 64 -f ycsb-traces/a-load.txt --mlim 8192 --flim 8192 ./ycsbcli -d /tmp/helios_leveldb/dbdir -f op-traces/put.txt [-s] Put w/o sync #   
+Resource flow graphs:
+DBImpl::Write #  NULL
+Put w/ sync #">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.josehu.com/intention-base/kvstore/leveldb/put/"><meta property="article:section" content="kvstore">
+<title>Put | App Intention Base</title>
+<link rel=manifest href=/intention-base/manifest.json>
+<link rel=icon href=/intention-base/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/intention-base/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous>
+<script defer src=/intention-base/flexsearch.min.js></script>
+<script defer src=/intention-base/en.search.min.cb437e9381ca221e1436d7346aac15b608b4da3944c5fd76e8e6475631947727.js integrity="sha256-y0N+k4HKIh4UNtc0aqwVtgi02jlExf126OZHVjGUdyc=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/intention-base/><span>App Intention Base</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li>
+<span>Key-Value Stores</span>
+<ul>
+<li>
+<input type=checkbox id=section-e06a211a293faddd8c81962519cd60b4 class=toggle checked>
+<label for=section-e06a211a293faddd8c81962519cd60b4 class="flex justify-between">
+<a role=button>LevelDB</a>
+</label>
+<ul>
+<li>
+<a href=https://www.josehu.com/intention-base/kvstore/leveldb/setup/>Setup</a>
+</li>
+<li>
+<a href=https://www.josehu.com/intention-base/kvstore/leveldb/open/>Open</a>
+</li>
+<li>
+<a href=https://www.josehu.com/intention-base/kvstore/leveldb/put/ class=active>Put</a>
+</li>
+<li>
+<a href=https://www.josehu.com/intention-base/kvstore/leveldb/get/>Get</a>
+</li>
+<li>
+<a href=https://www.josehu.com/intention-base/kvstore/leveldb/scan/>Scan</a>
+</li>
+<li>
+<a href=https://www.josehu.com/intention-base/kvstore/leveldb/compaction/>Compaction</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-7d86d7bf6f581fbe2b5b4307078c60bc class=toggle>
+<label for=section-7d86d7bf6f581fbe2b5b4307078c60bc class="flex justify-between">
+<a role=button>LMDB</a>
+</label>
+<ul>
+<li>
+<a href=https://www.josehu.com/intention-base/kvstore/lmdb/setup/>Setup</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<span>Relational Databases</span>
+<ul>
+<li>
+<input type=checkbox id=section-b18bbed05a5889e4829720fe14823102 class=toggle>
+<label for=section-b18bbed05a5889e4829720fe14823102 class="flex justify-between">
+<a role=button>SQLite</a>
+</label>
+<ul>
+<li>
+<a href=https://www.josehu.com/intention-base/database/sqlite/setup/>Setup</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<span>Cmdline Utilities</span>
+<ul>
+<li>
+<input type=checkbox id=section-cc2982073cdbfc4b547374283db73e08 class=toggle>
+<label for=section-cc2982073cdbfc4b547374283db73e08 class="flex justify-between">
+<a role=button>cp</a>
+</label>
+<ul>
+<li>
+<a href=https://www.josehu.com/intention-base/utility/cp/setup/>Setup</a>
+</li>
+<li>
+<a href=https://www.josehu.com/intention-base/utility/cp/copy-dense/>Copy Dense File</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/intention-base/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Put</strong>
+<label for=toc-control>
+<img src=/intention-base/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#config--command>Config & Command</a></li>
+<li><a href=#put-wo-sync>Put w/o sync</a>
+<ul>
+<li><a href=#dbimplwrite><code>DBImpl::Write</code></a></li>
+</ul>
+</li>
+<li><a href=#put-w-sync>Put w/ sync</a>
+<ul>
+<li><a href=#dbimplwrite-1><code>DBImpl::Write</code></a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown><h1 id=leveldb---put>
+LevelDB - Put
+<a class=anchor href=#leveldb---put>#</a>
+</h1>
+<p>Single <code>Put</code> of a new key-value pair into LSM tree.</p>
+<h2 id=config--command>
+Config & Command
+<a class=anchor href=#config--command>#</a>
+</h2>
+<p>Config:</p>
+<ul>
+<li>Memtable size limit: 8KB</li>
+<li>SSTable file size limit: 8KB</li>
+</ul>
+<p>Command:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>./ycsbcli -d /tmp/helios_leveldb/dbdir -v <span style=color:#ae81ff>64</span> -f ycsb-traces/a-load.txt --mlim <span style=color:#ae81ff>8192</span> --flim <span style=color:#ae81ff>8192</span>
+./ycsbcli -d /tmp/helios_leveldb/dbdir -f op-traces/put.txt <span style=color:#f92672>[</span>-s<span style=color:#f92672>]</span>
+</code></pre></div><h2 id=put-wo-sync>
+Put w/o sync
+<a class=anchor href=#put-wo-sync>#</a>
+</h2>
+<p><a href=/kvstore/leveldb/vis-put-nosync.html><figure><img src=/kvstore/leveldb/vis-put-nosync.svg>
+</figure>
+</a></p>
+<p>Resource flow graphs:</p>
+<h3 id=dbimplwrite>
+<code>DBImpl::Write</code>
+<a class=anchor href=#dbimplwrite>#</a>
+</h3>
+<p>NULL</p>
+<h2 id=put-w-sync>
+Put w/ sync
+<a class=anchor href=#put-w-sync>#</a>
+</h2>
+<p><a href=/kvstore/leveldb/vis-put-sync.html><figure><img src=/kvstore/leveldb/vis-put-sync.svg>
+</figure>
+</a></p>
+<p>Resource flow graphs:</p>
+<h3 id=dbimplwrite-1>
+<code>DBImpl::Write</code>
+<a class=anchor href=#dbimplwrite-1>#</a>
+</h3>
+<p><a href=/kvstore/leveldb/rtrace-put-sync.svg><figure><img src=/kvstore/leveldb/rtrace-put-sync.svg>
+</figure>
+</a></p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+<div>
+<a class="flex align-center" href=https://github.com/josehu07/intention-base/edit/main/content/kvstore/leveldb/put.md target=_blank rel=noopener>
+<img src=/intention-base/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span>
+</a>
+</div>
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#config--command>Config & Command</a></li>
+<li><a href=#put-wo-sync>Put w/o sync</a>
+<ul>
+<li><a href=#dbimplwrite><code>DBImpl::Write</code></a></li>
+</ul>
+</li>
+<li><a href=#put-w-sync>Put w/ sync</a>
+<ul>
+<li><a href=#dbimplwrite-1><code>DBImpl::Write</code></a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>
