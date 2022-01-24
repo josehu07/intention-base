@@ -1,0 +1,3551 @@
+<!-- Jinja2 template for visualization output. -->
+
+<!-- Guanzhou Hu <guanzhou.hu@wisc.edu> @ 2021 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Helios: vis-open</title>
+
+    <script type="text/javascript">
+        var frame_info = {
+"framebox-0": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_open64",
+    "pc": 140737349062315,
+    "args": [
+        [
+            "file",
+            "0x4f8820 \"ycsb-traces/a-load.txt\""
+        ],
+        [
+            "oflag",
+            "0"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980316020949500,
+    "ret32": "3",
+    "ret64": "3",
+    "ret_ts": 1642980316021588400,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "fopen",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 1
+        }
+    ]
+}`,
+                },
+"framebox-1": {
+                    "name_desc": 'read',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_read",
+    "pc": 140737353753490,
+    "args": [
+        [
+            "fd",
+            "3"
+        ],
+        [
+            "buf",
+            "0x4f9620"
+        ],
+        [
+            "nbytes",
+            "8191"
+        ]
+    ],
+    "syscall_name": "read",
+    "call_ts": 1642980316025479700,
+    "ret32": "8191",
+    "ret64": "8191",
+    "ret_ts": 1642980316026360900,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_read",
+            "invocation_count": 1
+        }
+    ]
+}`,
+                },
+"framebox-2": {
+                    "name_desc": 'close',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___close_nocancel",
+    "pc": 140737349084331,
+    "args": [
+        [
+            "fd",
+            "3"
+        ]
+    ],
+    "syscall_name": "close",
+    "call_ts": 1642980316039837900,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980316040418600,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "close",
+            "invocation_count": 1
+        },
+        {
+            "fn": "fclose",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_close",
+            "invocation_count": 1
+        }
+    ]
+}`,
+                },
+"framebox-3": {
+                    "name_desc": 'rename',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "rename",
+    "pc": 140737348362251,
+    "args": [
+        [
+            "old",
+            "0x4f9940 \"/tmp/helios_leveldb/dbdir/LOG\""
+        ],
+        [
+            "new",
+            "0x4fb660 \"/tmp/helios_leveldb/dbdir/LOG.old\""
+        ]
+    ],
+    "syscall_name": "rename",
+    "call_ts": 1642980316050629400,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980316051246400,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::DBImpl",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::SanitizeOptions",
+            "invocation_count": 1
+        },
+        {
+            "fn": "rename",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_rename",
+            "invocation_count": 1
+        }
+    ]
+}`,
+                },
+"framebox-4": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_open64",
+    "pc": 140737353755323,
+    "args": [
+        [
+            "file",
+            "0x4fb660 \"/tmp/helios_leveldb/dbdir/LOG\""
+        ],
+        [
+            "oflag",
+            "525377"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980316057424900,
+    "ret32": "3",
+    "ret64": "3",
+    "ret_ts": 1642980316058052900,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::DBImpl",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::SanitizeOptions",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 2
+        }
+    ]
+}`,
+                },
+"framebox-5": {
+                    "name_desc": 'fcntl',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__fcntl64_nocancel_adjusted",
+    "pc": 140737349084580,
+    "args": [
+        [
+            "fd",
+            "3"
+        ],
+        [
+            "cmd",
+            "3"
+        ],
+        [
+            "arg",
+            "0x80441"
+        ]
+    ],
+    "syscall_name": "fcntl",
+    "call_ts": 1642980316060528100,
+    "ret32": "33793",
+    "ret64": "33793",
+    "ret_ts": 1642980316061111600,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::DBImpl",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::SanitizeOptions",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_fcntl",
+            "invocation_count": 1
+        }
+    ]
+}`,
+                },
+"framebox-6": {
+                    "name_desc": 'leveldb::SanitizeOptions~1',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::SanitizeOptions.0
+  |- C rename
+  |- C openat
+  |- C fcntl`,
+                },
+"framebox-7": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_open64",
+    "pc": 140737353755323,
+    "args": [
+        [
+            "file",
+            "0x4f9940 \"/tmp/helios_leveldb/dbdir/LOCK\""
+        ],
+        [
+            "oflag",
+            "524354"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980316066131800,
+    "ret32": "4",
+    "ret64": "4",
+    "ret_ts": 1642980316066726000,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 3
+        }
+    ]
+}`,
+                },
+"framebox-8": {
+                    "name_desc": 'fcntl',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__fcntl64_nocancel_adjusted",
+    "pc": 140737349084580,
+    "args": [
+        [
+            "fd",
+            "4"
+        ],
+        [
+            "cmd",
+            "6"
+        ],
+        [
+            "arg",
+            "0x7fffffffccd0"
+        ]
+    ],
+    "syscall_name": "fcntl",
+    "call_ts": 1642980316068255800,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980316068880900,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_fcntl",
+            "invocation_count": 2
+        }
+    ]
+}`,
+                },
+"framebox-9": {
+                    "name_desc": 'access',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___access",
+    "pc": 140737349063339,
+    "args": [
+        [
+            "file",
+            "0x4f9940 \"/tmp/helios_leveldb/dbdir/CURRENT\""
+        ],
+        [
+            "type",
+            "0"
+        ]
+    ],
+    "syscall_name": "access",
+    "call_ts": 1642980316070708800,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980316071318300,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_access",
+            "invocation_count": 1
+        }
+    ]
+}`,
+                },
+"framebox-10": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_open64",
+    "pc": 140737353755323,
+    "args": [
+        [
+            "file",
+            "0x4f9940 \"/tmp/helios_leveldb/dbdir/CURRENT\""
+        ],
+        [
+            "oflag",
+            "524288"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980316074326400,
+    "ret32": "5",
+    "ret64": "5",
+    "ret_ts": 1642980316074918800,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::ReadFileToString",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 4
+        }
+    ]
+}`,
+                },
+"framebox-11": {
+                    "name_desc": 'read',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_read",
+    "pc": 140737353753490,
+    "args": [
+        [
+            "fd",
+            "5"
+        ],
+        [
+            "buf",
+            "0x504190"
+        ],
+        [
+            "nbytes",
+            "8192"
+        ]
+    ],
+    "syscall_name": "read",
+    "call_ts": 1642980316076751200,
+    "ret32": "16",
+    "ret64": "16",
+    "ret_ts": 1642980316077320200,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::ReadFileToString",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_read",
+            "invocation_count": 6
+        }
+    ]
+}`,
+                },
+"framebox-12": {
+                    "name_desc": 'close',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__close",
+    "pc": 140737353753655,
+    "args": [
+        [
+            "fd",
+            "5"
+        ]
+    ],
+    "syscall_name": "close",
+    "call_ts": 1642980316081373400,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980316081880000,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::ReadFileToString",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_close",
+            "invocation_count": 2
+        }
+    ]
+}`,
+                },
+"framebox-13": {
+                    "name_desc": 'leveldb::ReadFileToString~1',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::ReadFileToString.0
+  |- C openat
+  |- C read x 2
+  |- C close`,
+                },
+"framebox-14": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_open64",
+    "pc": 140737353755323,
+    "args": [
+        [
+            "file",
+            "0x4f9940 \"/tmp/helios_leveldb/dbdir/MANIFEST-000002\""
+        ],
+        [
+            "oflag",
+            "524288"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980316084142500,
+    "ret32": "5",
+    "ret64": "5",
+    "ret_ts": 1642980316084644000,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 5
+        }
+    ]
+}`,
+                },
+"framebox-15": {
+                    "name_desc": 'read',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_read",
+    "pc": 140737353753490,
+    "args": [
+        [
+            "fd",
+            "5"
+        ],
+        [
+            "buf",
+            "0x513530"
+        ],
+        [
+            "nbytes",
+            "32768"
+        ]
+    ],
+    "syscall_name": "read",
+    "call_ts": 1642980316087327700,
+    "ret32": "50",
+    "ret64": "50",
+    "ret_ts": 1642980316087852700,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::log::Reader::ReadRecord",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::log::Reader::ReadPhysicalRecord",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_read",
+            "invocation_count": 8
+        }
+    ]
+}`,
+                },
+"framebox-16": {
+                    "name_desc": 'close',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__close",
+    "pc": 140737353753655,
+    "args": [
+        [
+            "fd",
+            "5"
+        ]
+    ],
+    "syscall_name": "close",
+    "call_ts": 1642980316095361600,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980316095855800,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_close",
+            "invocation_count": 3
+        }
+    ]
+}`,
+                },
+"framebox-17": {
+                    "name_desc": 'leveldb::VersionSet::Recover~1',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::VersionSet::Recover.0
+  |- F leveldb::ReadFileToString.0
+  |- C openat
+  |- C read
+  |- C close`,
+                },
+"framebox-18": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___open64_nocancel",
+    "pc": 140737349084764,
+    "args": [
+        [
+            "file",
+            "0x4faa40 \"/tmp/helios_leveldb/dbdir\""
+        ],
+        [
+            "oflag",
+            "591872"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980316098810900,
+    "ret32": "5",
+    "ret64": "5",
+    "ret_ts": 1642980316099326500,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 6
+        }
+    ]
+}`,
+                },
+"framebox-19": {
+                    "name_desc": 'fstat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___fxstat",
+    "pc": 140737349060233,
+    "args": [
+        [
+            "vers",
+            "1"
+        ],
+        [
+            "fd",
+            "5"
+        ],
+        [
+            "buf",
+            "0x7fffffffcc90"
+        ]
+    ],
+    "syscall_name": "fstat",
+    "call_ts": 1642980316100965200,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980316101498900,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_fstat",
+            "invocation_count": 1
+        }
+    ]
+}`,
+                },
+"framebox-20": {
+                    "name_desc": 'getdents64',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___getdents64",
+    "pc": 140737348867131,
+    "args": [
+        [
+            "fd",
+            "5"
+        ],
+        [
+            "buf",
+            "0x513560"
+        ],
+        [
+            "nbytes",
+            "<optimized out>"
+        ]
+    ],
+    "syscall_name": "getdents64",
+    "call_ts": 1642980316103862800,
+    "ret32": "232",
+    "ret64": "232",
+    "ret_ts": 1642980316104386500,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_getdents64",
+            "invocation_count": 1
+        }
+    ]
+}`,
+                },
+"framebox-21": {
+                    "name_desc": 'close',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___close_nocancel",
+    "pc": 140737349084331,
+    "args": [
+        [
+            "fd",
+            "5"
+        ]
+    ],
+    "syscall_name": "close",
+    "call_ts": 1642980316107608900,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980316108110600,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_close",
+            "invocation_count": 4
+        }
+    ]
+}`,
+                },
+"framebox-22": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_open64",
+    "pc": 140737353755323,
+    "args": [
+        [
+            "file",
+            "0x4fb470 \"/tmp/helios_leveldb/dbdir/000003.log\""
+        ],
+        [
+            "oflag",
+            "524288"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980316109422500,
+    "ret32": "5",
+    "ret64": "5",
+    "ret_ts": 1642980316109945200,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 7
+        }
+    ]
+}`,
+                },
+"framebox-23": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___open64_nocancel",
+    "pc": 140737349084764,
+    "args": [
+        [
+            "file",
+            "0x7ffff7bd0916 \"/etc/localtime\""
+        ],
+        [
+            "oflag",
+            "524288"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980316113537300,
+    "ret32": "6",
+    "ret64": "6",
+    "ret_ts": 1642980316114029500,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::Log",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::PosixLogger::Logv",
+            "invocation_count": 1
+        },
+        {
+            "fn": "fopen",
+            "invocation_count": 2
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 8
+        }
+    ]
+}`,
+                },
+"framebox-24": {
+                    "name_desc": 'fstat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___fxstat",
+    "pc": 140737349060233,
+    "args": [
+        [
+            "vers",
+            "1"
+        ],
+        [
+            "fd",
+            "6"
+        ],
+        [
+            "buf",
+            "0x7fffffffc520"
+        ]
+    ],
+    "syscall_name": "fstat",
+    "call_ts": 1642980316119144900,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980316119644000,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::Log",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::PosixLogger::Logv",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_fstat",
+            "invocation_count": 2
+        }
+    ]
+}`,
+                },
+"framebox-25": {
+                    "name_desc": 'read',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___read_nocancel",
+    "pc": 140737349085032,
+    "args": [
+        [
+            "fd",
+            "6"
+        ],
+        [
+            "buf",
+            "0x504530"
+        ],
+        [
+            "nbytes",
+            "4096"
+        ]
+    ],
+    "syscall_name": "read",
+    "call_ts": 1642980316127304400,
+    "ret32": "3576",
+    "ret64": "3576",
+    "ret_ts": 1642980316127834300,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::Log",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::PosixLogger::Logv",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_read",
+            "invocation_count": 9
+        }
+    ]
+}`,
+                },
+"framebox-26": {
+                    "name_desc": 'lseek',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__lseek64",
+    "pc": 140737349063291,
+    "args": [
+        [
+            "fd",
+            "6"
+        ],
+        [
+            "offset",
+            "-2272"
+        ],
+        [
+            "whence",
+            "1"
+        ]
+    ],
+    "syscall_name": "lseek",
+    "call_ts": 1642980316131438000,
+    "ret32": "1304",
+    "ret64": "1304",
+    "ret_ts": 1642980316131964100,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::Log",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::PosixLogger::Logv",
+            "invocation_count": 1
+        },
+        {
+            "fn": "fseek",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_lseek",
+            "invocation_count": 1
+        }
+    ]
+}`,
+                },
+"framebox-27": {
+                    "name_desc": 'read',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___read_nocancel",
+    "pc": 140737349085032,
+    "args": [
+        [
+            "fd",
+            "6"
+        ],
+        [
+            "buf",
+            "0x504530"
+        ],
+        [
+            "nbytes",
+            "4096"
+        ]
+    ],
+    "syscall_name": "read",
+    "call_ts": 1642980316134739000,
+    "ret32": "2272",
+    "ret64": "2272",
+    "ret_ts": 1642980316135295900,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::Log",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::PosixLogger::Logv",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_read",
+            "invocation_count": 10
+        }
+    ]
+}`,
+                },
+"framebox-28": {
+                    "name_desc": 'close',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___close_nocancel",
+    "pc": 140737349084331,
+    "args": [
+        [
+            "fd",
+            "6"
+        ]
+    ],
+    "syscall_name": "close",
+    "call_ts": 1642980316138136300,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980316138633400,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::Log",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::PosixLogger::Logv",
+            "invocation_count": 1
+        },
+        {
+            "fn": "fclose",
+            "invocation_count": 2
+        },
+        {
+            "fn": "SYS_close",
+            "invocation_count": 5
+        }
+    ]
+}`,
+                },
+"framebox-29": {
+                    "name_desc": 'fstat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___fxstat",
+    "pc": 140737349060233,
+    "args": [
+        [
+            "vers",
+            "1"
+        ],
+        [
+            "fd",
+            "3"
+        ],
+        [
+            "buf",
+            "0x7fffffffc4d0"
+        ]
+    ],
+    "syscall_name": "fstat",
+    "call_ts": 1642980316141399200,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980316141908700,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::Log",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::PosixLogger::Logv",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_fstat",
+            "invocation_count": 4
+        }
+    ]
+}`,
+                },
+"framebox-30": {
+                    "name_desc": 'write',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___libc_write",
+    "pc": 140737349063143,
+    "args": [
+        [
+            "fd",
+            "3"
+        ],
+        [
+            "buf",
+            "0x505e00"
+        ],
+        [
+            "nbytes",
+            "61"
+        ]
+    ],
+    "syscall_name": "write",
+    "call_ts": 1642980316145723100,
+    "ret32": "61",
+    "ret64": "61",
+    "ret_ts": 1642980316146243900,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::Log",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::PosixLogger::Logv",
+            "invocation_count": 1
+        },
+        {
+            "fn": "fflush",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_write",
+            "invocation_count": 1
+        }
+    ]
+}`,
+                },
+"framebox-31": {
+                    "name_desc": 'leveldb::PosixLogger::Logv~1',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::PosixLogger::Logv.0
+  |- C openat
+  |- C fstat x 2
+  |- C read
+  |- C lseek
+  |- C read
+  |- C close
+  |- C fstat
+  |- C write`,
+                },
+"framebox-32": {
+                    "name_desc": 'read',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_read",
+    "pc": 140737353753490,
+    "args": [
+        [
+            "fd",
+            "5"
+        ],
+        [
+            "buf",
+            "0x513530"
+        ],
+        [
+            "nbytes",
+            "32768"
+        ]
+    ],
+    "syscall_name": "read",
+    "call_ts": 1642980316152155600,
+    "ret32": "32768",
+    "ret64": "32768",
+    "ret_ts": 1642980316152813000,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::log::Reader::ReadRecord",
+            "invocation_count": 4
+        },
+        {
+            "fn": "leveldb::log::Reader::ReadPhysicalRecord",
+            "invocation_count": 4
+        },
+        {
+            "fn": "SYS_read",
+            "invocation_count": 11
+        }
+    ]
+}`,
+                },
+"framebox-33": {
+                    "name_desc": 'close',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__close",
+    "pc": 140737353753655,
+    "args": [
+        [
+            "fd",
+            "5"
+        ]
+    ],
+    "syscall_name": "close",
+    "call_ts": 1642980318367840500,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980318368340500,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_close",
+            "invocation_count": 6
+        }
+    ]
+}`,
+                },
+"framebox-34": {
+                    "name_desc": 'write',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___libc_write",
+    "pc": 140737349063143,
+    "args": [
+        [
+            "fd",
+            "3"
+        ],
+        [
+            "buf",
+            "0x505e00"
+        ],
+        [
+            "nbytes",
+            "69"
+        ]
+    ],
+    "syscall_name": "write",
+    "call_ts": 1642980318372096100,
+    "ret32": "69",
+    "ret64": "69",
+    "ret_ts": 1642980318372600800,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::Log",
+            "invocation_count": 2
+        },
+        {
+            "fn": "leveldb::PosixLogger::Logv",
+            "invocation_count": 2
+        },
+        {
+            "fn": "fflush",
+            "invocation_count": 2
+        },
+        {
+            "fn": "SYS_write",
+            "invocation_count": 2
+        }
+    ]
+}`,
+                },
+"framebox-35": {
+                    "name_desc": 'leveldb::PosixLogger::Logv~2',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::PosixLogger::Logv.1
+  |- C write`,
+                },
+"framebox-36": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_open64",
+    "pc": 140737353755323,
+    "args": [
+        [
+            "file",
+            "0x4fb430 \"/tmp/helios_leveldb/dbdir/000005.ldb\""
+        ],
+        [
+            "oflag",
+            "524865"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980318381070200,
+    "ret32": "5",
+    "ret64": "5",
+    "ret_ts": 1642980318381620100,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 9
+        }
+    ]
+}`,
+                },
+"framebox-37": {
+                    "name_desc": 'write',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_write",
+    "pc": 140737353753335,
+    "args": [
+        [
+            "fd",
+            "5"
+        ],
+        [
+            "buf",
+            "0x53a738"
+        ],
+        [
+            "nbytes",
+            "4146"
+        ]
+    ],
+    "syscall_name": "write",
+    "call_ts": 1642980318386182600,
+    "ret32": "4146",
+    "ret64": "4146",
+    "ret_ts": 1642980318386705700,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_write",
+            "invocation_count": 3
+        }
+    ]
+}`,
+                },
+"framebox-38": {
+                    "name_desc": 'fdatasync',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "fdatasync",
+    "pc": 140737349092295,
+    "args": [
+        [
+            "fd",
+            "5"
+        ]
+    ],
+    "syscall_name": "fdatasync",
+    "call_ts": 1642980318459965700,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980318463878300,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_fdatasync",
+            "invocation_count": 1
+        }
+    ]
+}`,
+                },
+"framebox-39": {
+                    "name_desc": 'close',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__close",
+    "pc": 140737353753655,
+    "args": [
+        [
+            "fd",
+            "5"
+        ]
+    ],
+    "syscall_name": "close",
+    "call_ts": 1642980318465851600,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980318466334800,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_close",
+            "invocation_count": 7
+        }
+    ]
+}`,
+                },
+"framebox-40": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_open64",
+    "pc": 140737353755323,
+    "args": [
+        [
+            "file",
+            "0x4fb3f0 \"/tmp/helios_leveldb/dbdir/000005.ldb\""
+        ],
+        [
+            "oflag",
+            "524288"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980318471097800,
+    "ret32": "5",
+    "ret64": "5",
+    "ret_ts": 1642980318471682400,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 10
+        }
+    ]
+}`,
+                },
+"framebox-41": {
+                    "name_desc": 'stat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___xstat",
+    "pc": 140737349060138,
+    "args": [
+        [
+            "vers",
+            "1"
+        ],
+        [
+            "name",
+            "0x4fb3f0 \"/tmp/helios_leveldb/dbdir/000005.ldb\""
+        ],
+        [
+            "buf",
+            "0x7fffffffc740"
+        ]
+    ],
+    "syscall_name": "stat",
+    "call_ts": 1642980318474303900,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980318474800000,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_stat",
+            "invocation_count": 1
+        }
+    ]
+}`,
+                },
+"framebox-42": {
+                    "name_desc": 'mmap',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___mmap64",
+    "pc": 140737349106246,
+    "args": [
+        [
+            "offset",
+            "0"
+        ],
+        [
+            "fd",
+            "5"
+        ],
+        [
+            "flags",
+            "1"
+        ],
+        [
+            "prot",
+            "1"
+        ],
+        [
+            "len",
+            "92875"
+        ],
+        [
+            "addr",
+            "0x0"
+        ],
+        [
+            "addr",
+            "0x0"
+        ],
+        [
+            "len",
+            "92875"
+        ],
+        [
+            "prot",
+            "1"
+        ],
+        [
+            "flags",
+            "1"
+        ],
+        [
+            "fd",
+            "5"
+        ],
+        [
+            "offset",
+            "0"
+        ]
+    ],
+    "syscall_name": "mmap",
+    "call_ts": 1642980318477814700,
+    "ret32": "-134533120",
+    "ret64": "140737353822208",
+    "ret_ts": 1642980318478295400,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_mmap",
+            "invocation_count": 1
+        }
+    ]
+}`,
+                },
+"framebox-43": {
+                    "name_desc": 'close',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__close",
+    "pc": 140737353753655,
+    "args": [
+        [
+            "fd",
+            "5"
+        ]
+    ],
+    "syscall_name": "close",
+    "call_ts": 1642980318480593100,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980318481075600,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_close",
+            "invocation_count": 8
+        }
+    ]
+}`,
+                },
+"framebox-44": {
+                    "name_desc": 'write',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___libc_write",
+    "pc": 140737349063143,
+    "args": [
+        [
+            "fd",
+            "3"
+        ],
+        [
+            "buf",
+            "0x505e00"
+        ],
+        [
+            "nbytes",
+            "76"
+        ]
+    ],
+    "syscall_name": "write",
+    "call_ts": 1642980318485148900,
+    "ret32": "76",
+    "ret64": "76",
+    "ret_ts": 1642980318485672400,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Recover",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::Log",
+            "invocation_count": 3
+        },
+        {
+            "fn": "leveldb::PosixLogger::Logv",
+            "invocation_count": 3
+        },
+        {
+            "fn": "fflush",
+            "invocation_count": 3
+        },
+        {
+            "fn": "SYS_write",
+            "invocation_count": 27
+        }
+    ]
+}`,
+                },
+"framebox-45": {
+                    "name_desc": 'leveldb::PosixLogger::Logv~3',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::PosixLogger::Logv.1
+  |- C write`,
+                },
+"framebox-46": {
+                    "name_desc": 'leveldb::DBImpl::Recover~1',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::DBImpl::Recover.0
+  |- C openat
+  |- C fcntl
+  |- C access
+  |- F leveldb::VersionSet::Recover.0
+  |- C openat
+  |- C fstat
+  |- C getdents64 x 2
+  |- C close
+  |- C openat
+  |- F leveldb::PosixLogger::Logv.0
+  |- C read x 4
+  |- C close
+  |- F leveldb::PosixLogger::Logv.1
+  |- C openat
+  |- C write x 24
+  |- C fdatasync
+  |- C close
+  |- C openat
+  |- C stat
+  |- C mmap
+  |- C close
+  |- F leveldb::PosixLogger::Logv.1`,
+                },
+"framebox-47": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_open64",
+    "pc": 140737353755323,
+    "args": [
+        [
+            "file",
+            "0x4fb470 \"/tmp/helios_leveldb/dbdir/000006.log\""
+        ],
+        [
+            "oflag",
+            "524865"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980318491401500,
+    "ret32": "5",
+    "ret64": "5",
+    "ret_ts": 1642980318491918700,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 11
+        }
+    ]
+}`,
+                },
+"framebox-48": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_open64",
+    "pc": 140737353755323,
+    "args": [
+        [
+            "file",
+            "0x4fb370 \"/tmp/helios_leveldb/dbdir/MANIFEST-000004\""
+        ],
+        [
+            "oflag",
+            "524865"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980318493623400,
+    "ret32": "6",
+    "ret64": "6",
+    "ret_ts": 1642980318494122100,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::LogAndApply",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 12
+        }
+    ]
+}`,
+                },
+"framebox-49": {
+                    "name_desc": 'write',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_write",
+    "pc": 140737353753335,
+    "args": [
+        [
+            "fd",
+            "6"
+        ],
+        [
+            "buf",
+            "0x5245a8"
+        ],
+        [
+            "nbytes",
+            "35"
+        ]
+    ],
+    "syscall_name": "write",
+    "call_ts": 1642980318497301500,
+    "ret32": "35",
+    "ret64": "35",
+    "ret_ts": 1642980318497793600,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::LogAndApply",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::WriteSnapshot",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::log::Writer::AddRecord",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::log::Writer::EmitPhysicalRecord",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_write",
+            "invocation_count": 28
+        }
+    ]
+}`,
+                },
+"framebox-50": {
+                    "name_desc": 'leveldb::log::Writer::AddRecord~1',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::log::Writer::AddRecord.0
+  |- C write x 1~2`,
+                },
+"framebox-51": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_open64",
+    "pc": 140737353755323,
+    "args": [
+        [
+            "file",
+            "0x505040 \"/tmp/helios_leveldb/dbdir\""
+        ],
+        [
+            "oflag",
+            "524288"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980318506110900,
+    "ret32": "7",
+    "ret64": "7",
+    "ret_ts": 1642980318506603300,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::LogAndApply",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 13
+        }
+    ]
+}`,
+                },
+"framebox-52": {
+                    "name_desc": 'fdatasync',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "fdatasync",
+    "pc": 140737349092295,
+    "args": [
+        [
+            "fd",
+            "7"
+        ]
+    ],
+    "syscall_name": "fdatasync",
+    "call_ts": 1642980318507965700,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980318511304400,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::LogAndApply",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_fdatasync",
+            "invocation_count": 2
+        }
+    ]
+}`,
+                },
+"framebox-53": {
+                    "name_desc": 'close',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__close",
+    "pc": 140737353753655,
+    "args": [
+        [
+            "fd",
+            "7"
+        ]
+    ],
+    "syscall_name": "close",
+    "call_ts": 1642980318512770400,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980318513572400,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::LogAndApply",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_close",
+            "invocation_count": 9
+        }
+    ]
+}`,
+                },
+"framebox-54": {
+                    "name_desc": 'fdatasync',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "fdatasync",
+    "pc": 140737349092295,
+    "args": [
+        [
+            "fd",
+            "6"
+        ]
+    ],
+    "syscall_name": "fdatasync",
+    "call_ts": 1642980318515025000,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980318518723100,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::LogAndApply",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_fdatasync",
+            "invocation_count": 3
+        }
+    ]
+}`,
+                },
+"framebox-55": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_open64",
+    "pc": 140737353755323,
+    "args": [
+        [
+            "file",
+            "0x4fb3b0 \"/tmp/helios_leveldb/dbdir/000004.dbtmp\""
+        ],
+        [
+            "oflag",
+            "524865"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980318521269300,
+    "ret32": "7",
+    "ret64": "7",
+    "ret_ts": 1642980318521807200,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::LogAndApply",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::SetCurrentFile",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::WriteStringToFileSync",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 14
+        }
+    ]
+}`,
+                },
+"framebox-56": {
+                    "name_desc": 'write',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_write",
+    "pc": 140737353753335,
+    "args": [
+        [
+            "fd",
+            "7"
+        ],
+        [
+            "buf",
+            "0x534608"
+        ],
+        [
+            "nbytes",
+            "16"
+        ]
+    ],
+    "syscall_name": "write",
+    "call_ts": 1642980318523429000,
+    "ret32": "16",
+    "ret64": "16",
+    "ret_ts": 1642980318523935200,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::LogAndApply",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::SetCurrentFile",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::WriteStringToFileSync",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_write",
+            "invocation_count": 30
+        }
+    ]
+}`,
+                },
+"framebox-57": {
+                    "name_desc": 'fdatasync',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "fdatasync",
+    "pc": 140737349092295,
+    "args": [
+        [
+            "fd",
+            "7"
+        ]
+    ],
+    "syscall_name": "fdatasync",
+    "call_ts": 1642980318525589700,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980318529327100,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::LogAndApply",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::SetCurrentFile",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::WriteStringToFileSync",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_fdatasync",
+            "invocation_count": 4
+        }
+    ]
+}`,
+                },
+"framebox-58": {
+                    "name_desc": 'close',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__close",
+    "pc": 140737353753655,
+    "args": [
+        [
+            "fd",
+            "7"
+        ]
+    ],
+    "syscall_name": "close",
+    "call_ts": 1642980318530974700,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980318531527300,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::LogAndApply",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::SetCurrentFile",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::WriteStringToFileSync",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_close",
+            "invocation_count": 10
+        }
+    ]
+}`,
+                },
+"framebox-59": {
+                    "name_desc": 'leveldb::WriteStringToFileSync~1',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::WriteStringToFileSync.0
+  |- C openat
+  |- C write
+  |- C fdatasync
+  |- C close`,
+                },
+"framebox-60": {
+                    "name_desc": 'rename',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "rename",
+    "pc": 140737348362251,
+    "args": [
+        [
+            "old",
+            "0x4fb3b0 \"/tmp/helios_leveldb/dbdir/000004.dbtmp\""
+        ],
+        [
+            "new",
+            "0x4fb3f0 \"/tmp/helios_leveldb/dbdir/CURRENT\""
+        ]
+    ],
+    "syscall_name": "rename",
+    "call_ts": 1642980318534168700,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980318534724000,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::VersionSet::LogAndApply",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::SetCurrentFile",
+            "invocation_count": 1
+        },
+        {
+            "fn": "rename",
+            "invocation_count": 2
+        },
+        {
+            "fn": "SYS_rename",
+            "invocation_count": 2
+        }
+    ]
+}`,
+                },
+"framebox-61": {
+                    "name_desc": 'leveldb::SetCurrentFile~1',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::SetCurrentFile.0
+  |- F leveldb::WriteStringToFileSync.0
+  |- C rename`,
+                },
+"framebox-62": {
+                    "name_desc": 'leveldb::VersionSet::LogAndApply~1',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::VersionSet::LogAndApply.0
+  |- C openat
+  |- F leveldb::log::Writer::AddRecord.0 x 2
+  |- C openat
+  |- C fdatasync
+  |- C close
+  |- C fdatasync
+  |- F leveldb::SetCurrentFile.0`,
+                },
+"framebox-63": {
+                    "name_desc": 'openat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___open64_nocancel",
+    "pc": 140737349084764,
+    "args": [
+        [
+            "file",
+            "0x4faa40 \"/tmp/helios_leveldb/dbdir\""
+        ],
+        [
+            "oflag",
+            "591872"
+        ]
+    ],
+    "syscall_name": "openat",
+    "call_ts": 1642980318538541000,
+    "ret32": "7",
+    "ret64": "7",
+    "ret_ts": 1642980318539034500,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::RemoveObsoleteFiles",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_openat",
+            "invocation_count": 15
+        }
+    ]
+}`,
+                },
+"framebox-64": {
+                    "name_desc": 'fstat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___fxstat",
+    "pc": 140737349060233,
+    "args": [
+        [
+            "vers",
+            "1"
+        ],
+        [
+            "fd",
+            "7"
+        ],
+        [
+            "buf",
+            "0x7fffffffcce0"
+        ]
+    ],
+    "syscall_name": "fstat",
+    "call_ts": 1642980318540400900,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980318540903100,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::RemoveObsoleteFiles",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_fstat",
+            "invocation_count": 5
+        }
+    ]
+}`,
+                },
+"framebox-65": {
+                    "name_desc": 'getdents64',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___getdents64",
+    "pc": 140737348867131,
+    "args": [
+        [
+            "fd",
+            "7"
+        ],
+        [
+            "buf",
+            "0x534630"
+        ],
+        [
+            "nbytes",
+            "<optimized out>"
+        ]
+    ],
+    "syscall_name": "getdents64",
+    "call_ts": 1642980318542198200,
+    "ret32": "336",
+    "ret64": "336",
+    "ret_ts": 1642980318542725100,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::RemoveObsoleteFiles",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_getdents64",
+            "invocation_count": 3
+        }
+    ]
+}`,
+                },
+"framebox-66": {
+                    "name_desc": 'close',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___close_nocancel",
+    "pc": 140737349084331,
+    "args": [
+        [
+            "fd",
+            "7"
+        ]
+    ],
+    "syscall_name": "close",
+    "call_ts": 1642980318545708200,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980318546339900,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::RemoveObsoleteFiles",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_close",
+            "invocation_count": 11
+        }
+    ]
+}`,
+                },
+"framebox-67": {
+                    "name_desc": 'write',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___libc_write",
+    "pc": 140737349063143,
+    "args": [
+        [
+            "fd",
+            "3"
+        ],
+        [
+            "buf",
+            "0x505e00"
+        ],
+        [
+            "nbytes",
+            "60"
+        ]
+    ],
+    "syscall_name": "write",
+    "call_ts": 1642980318549343600,
+    "ret32": "60",
+    "ret64": "60",
+    "ret_ts": 1642980318549839100,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Open",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::RemoveObsoleteFiles",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::Log",
+            "invocation_count": 4
+        },
+        {
+            "fn": "leveldb::PosixLogger::Logv",
+            "invocation_count": 4
+        },
+        {
+            "fn": "fflush",
+            "invocation_count": 4
+        },
+        {
+            "fn": "SYS_write",
+            "invocation_count": 31
+        }
+    ]
+}`,
+                },
+"framebox-68": {
+                    "name_desc": 'leveldb::PosixLogger::Logv~4',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::PosixLogger::Logv.1
+  |- C write`,
+                },
+"framebox-69": {
+                    "name_desc": 'leveldb::DBImpl::RemoveObsoleteFiles~1',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::DBImpl::RemoveObsoleteFiles.0
+  |- C openat
+  |- C fstat
+  |- C getdents64 x 2
+  |- C close
+  |- F leveldb::PosixLogger::Logv.1 x 2`,
+                },
+"framebox-70": {
+                    "name_desc": 'leveldb::DB::Open~1',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::DB::Open.0
+  |- F leveldb::SanitizeOptions.0
+  |- F leveldb::DBImpl::Recover.0
+  |- C openat
+  |- F leveldb::VersionSet::LogAndApply.0
+  |- F leveldb::DBImpl::RemoveObsoleteFiles.0`,
+                },
+"framebox-71": {
+                    "name_desc": 'write',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__libc_write",
+    "pc": 140737353753335,
+    "args": [
+        [
+            "fd",
+            "5"
+        ],
+        [
+            "buf",
+            "0x513538"
+        ],
+        [
+            "nbytes",
+            "109"
+        ]
+    ],
+    "syscall_name": "write",
+    "call_ts": 1642980318568200200,
+    "ret32": "109",
+    "ret64": "109",
+    "ret_ts": 1642980318568704700,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "do_ycsb",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Put",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DB::Put",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::Write",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::log::Writer::AddRecord",
+            "invocation_count": 3
+        },
+        {
+            "fn": "leveldb::log::Writer::EmitPhysicalRecord",
+            "invocation_count": 3
+        },
+        {
+            "fn": "SYS_write",
+            "invocation_count": 33
+        }
+    ]
+}`,
+                },
+"framebox-72": {
+                    "name_desc": 'leveldb::log::Writer::AddRecord~3',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::log::Writer::AddRecord.0
+  |- C write x 1~2`,
+                },
+"framebox-73": {
+                    "name_desc": 'do_ycsb~1',
+                    "rect_type": 'function',
+                    "full_info": `do_ycsb.0
+  |- F leveldb::log::Writer::AddRecord.0 x 1000`,
+                },
+"framebox-74": {
+                    "name_desc": 'fstat',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___fxstat",
+    "pc": 140737349060233,
+    "args": [
+        [
+            "vers",
+            "1"
+        ],
+        [
+            "fd",
+            "1"
+        ],
+        [
+            "buf",
+            "0x7fffffffcea0"
+        ]
+    ],
+    "syscall_name": "fstat",
+    "call_ts": 1642980326475651800,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980326476135700,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_fstat",
+            "invocation_count": 6
+        }
+    ]
+}`,
+                },
+"framebox-75": {
+                    "name_desc": 'write',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___libc_write",
+    "pc": 140737349063143,
+    "args": [
+        [
+            "fd",
+            "1"
+        ],
+        [
+            "buf",
+            "0x5527e0"
+        ],
+        [
+            "nbytes",
+            "24"
+        ]
+    ],
+    "syscall_name": "write",
+    "call_ts": 1642980326477877600,
+    "ret32": "24",
+    "ret64": "24",
+    "ret_ts": 1642980326478548700,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_write",
+            "invocation_count": 1036
+        }
+    ]
+}`,
+                },
+"framebox-76": {
+                    "name_desc": 'write',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__GI___libc_write",
+    "pc": 140737349063143,
+    "args": [
+        [
+            "fd",
+            "1"
+        ],
+        [
+            "buf",
+            "0x5527e0"
+        ],
+        [
+            "nbytes",
+            "1"
+        ]
+    ],
+    "syscall_name": "write",
+    "call_ts": 1642980326486806500,
+    "ret32": "1",
+    "ret64": "1",
+    "ret_ts": 1642980326487591400,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_stats",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_write",
+            "invocation_count": 1038
+        }
+    ]
+}`,
+                },
+"framebox-77": {
+                    "name_desc": 'leveldb_stats~1',
+                    "rect_type": 'function',
+                    "full_info": `leveldb_stats.0
+  |- C write x 16`,
+                },
+"framebox-78": {
+                    "name_desc": 'fcntl',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__fcntl64_nocancel_adjusted",
+    "pc": 140737349084580,
+    "args": [
+        [
+            "fd",
+            "4"
+        ],
+        [
+            "cmd",
+            "6"
+        ],
+        [
+            "arg",
+            "0x7fffffffcfa0"
+        ]
+    ],
+    "syscall_name": "fcntl",
+    "call_ts": 1642980326628329400,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980326628815300,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_close",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::~DBImpl",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_fcntl",
+            "invocation_count": 3
+        }
+    ]
+}`,
+                },
+"framebox-79": {
+                    "name_desc": 'close',
+                    "rect_type": 'syscall',
+                    "full_info": `{
+    "fn": "__close",
+    "pc": 140737353753655,
+    "args": [
+        [
+            "fd",
+            "4"
+        ]
+    ],
+    "syscall_name": "close",
+    "call_ts": 1642980326630784200,
+    "ret32": "0",
+    "ret64": "0",
+    "ret_ts": 1642980326631685700,
+    "pid": 31248,
+    "lwpid": 31248,
+    "tid": 0,
+    "stack": [
+        {
+            "fn": "main",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb_close",
+            "invocation_count": 1
+        },
+        {
+            "fn": "leveldb::DBImpl::~DBImpl",
+            "invocation_count": 1
+        },
+        {
+            "fn": "SYS_close",
+            "invocation_count": 12
+        }
+    ]
+}`,
+                },
+"framebox-80": {
+                    "name_desc": 'leveldb::DBImpl::~DBImpl~1',
+                    "rect_type": 'function',
+                    "full_info": `leveldb::DBImpl::~DBImpl.0
+  |- C fcntl
+  |- C close x 4`,
+                },
+"framebox-81": {
+                    "name_desc": 'main~1',
+                    "rect_type": 'function',
+                    "full_info": `main.0
+  |- C openat
+  |- C read x 5
+  |- C close
+  |- F leveldb::DB::Open.0
+  |- F do_ycsb.0
+  |- C fstat
+  |- C write x 2
+  |- F leveldb_stats.0
+  |- F leveldb::DBImpl::~DBImpl.0`,
+                },
+            // use backtick for full_info to allow multi-line string
+        };
+
+        window.onload = function() {
+            var rects = document.getElementsByClassName('framebox');
+            var curr_rect = null;
+
+            for (var i = 0; i < rects.length; i++) {
+                var rect = rects[i];
+                rect.onclick = function() {
+                    var name_text = document.getElementById('chosen_frame_name');
+                    name_text.innerText = frame_info[this.id]["name_desc"];
+
+                    if (curr_rect) {
+                        curr_rect.setAttribute('fill', 'white');
+                    }
+                    curr_rect = this;
+                    this.setAttribute('fill', '#E8E8E8');
+
+                    var type_text = document.getElementById('chosen_frame_type');
+                    type_text.innerText = frame_info[this.id]["rect_type"];
+
+                    var info_header = document.getElementById('chosen_frame_info_header');
+                    if (frame_info[this.id]["rect_type"] == 'syscall') {
+                        info_header.innerText = "Full info of syscall";
+                    } else {
+                        info_header.innerText = "Associated pattern";
+                    }
+
+                    var info_text = document.getElementById('chosen_frame_info');
+                    info_text.innerText = frame_info[this.id]["full_info"];
+                };
+            }
+        };
+    </script>
+
+    <style>
+        .framebox:hover { fill: #E0E0E0; }
+    </style>
+</head>
+
+<body>
+
+<!-- Header. -->
+<h1>Systree: vis-open</h1>
+
+<!-- SVG systree graph. -->
+<div style="overflow:auto; max-width:100%;">
+    <svg baseProfile="full" height="160" style="font-family: monospace;" version="1.1" width="5608" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink"><defs /><rect fill="white" height="160" stroke="grey" stroke-width="1" width="5608" x="0" y="0" /><rect class="framebox" fill="white" height="20" id="framebox-0" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="28" y="100"><title>openat</title></rect><text fill="black" pointer-events="none" x="30" y="115">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-1" stroke="rgb(0,0,180)" stroke-width="1" width="36" x="100" y="100"><title>read</title></rect><text fill="black" pointer-events="none" x="102" y="115">read<title>read</title></text><line stroke="black" stroke-width="2" x1="94" x2="94" y1="90" y2="120" /><line stroke="black" stroke-width="2" x1="142" x2="142" y1="90" y2="120" /><line stroke="black" stroke-width="2" x1="94" x2="103" y1="90" y2="90" /><line stroke="black" stroke-width="2" x1="142" x2="133" y1="90" y2="90" /><text fill="black" x="147" y="110">x 5</text><rect class="framebox" fill="white" height="20" id="framebox-2" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="190" y="100"><title>close</title></rect><text fill="black" pointer-events="none" x="192" y="115">close<title>close</title></text><rect class="framebox" fill="white" height="20" id="framebox-3" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="289" y="60"><title>rename</title></rect><text fill="black" pointer-events="none" x="291" y="75">rename<title>rename</title></text><rect class="framebox" fill="white" height="20" id="framebox-4" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="361" y="60"><title>openat</title></rect><text fill="black" pointer-events="none" x="363" y="75">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-5" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="433" y="60"><title>fcntl</title></rect><text fill="black" pointer-events="none" x="435" y="75">fcntl<title>fcntl</title></text><rect class="framebox" fill="white" height="20" id="framebox-6" stroke="rgb(255,0,0)" stroke-width="1" width="225" x="271" y="80"><title>leveldb::SanitizeOptions~1</title></rect><text fill="black" pointer-events="none" x="273" y="95">leveldb::SanitizeOption..<title>leveldb::SanitizeOptions~1</title></text><rect class="framebox" fill="white" height="20" id="framebox-7" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="532" y="60"><title>openat</title></rect><text fill="black" pointer-events="none" x="534" y="75">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-8" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="604" y="60"><title>fcntl</title></rect><text fill="black" pointer-events="none" x="606" y="75">fcntl<title>fcntl</title></text><rect class="framebox" fill="white" height="20" id="framebox-9" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="667" y="60"><title>access</title></rect><text fill="black" pointer-events="none" x="669" y="75">access<title>access</title></text><rect class="framebox" fill="white" height="20" id="framebox-10" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="775" y="20"><title>openat</title></rect><text fill="black" pointer-events="none" x="777" y="35">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-11" stroke="rgb(0,0,180)" stroke-width="1" width="36" x="847" y="20"><title>read</title></rect><text fill="black" pointer-events="none" x="849" y="35">read<title>read</title></text><line stroke="black" stroke-width="2" x1="841" x2="841" y1="10" y2="40" /><line stroke="black" stroke-width="2" x1="889" x2="889" y1="10" y2="40" /><line stroke="black" stroke-width="2" x1="841" x2="850" y1="10" y2="10" /><line stroke="black" stroke-width="2" x1="889" x2="880" y1="10" y2="10" /><text fill="black" x="894" y="30">x 2</text><rect class="framebox" fill="white" height="20" id="framebox-12" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="937" y="20"><title>close</title></rect><text fill="black" pointer-events="none" x="939" y="35">close<title>close</title></text><rect class="framebox" fill="white" height="20" id="framebox-13" stroke="rgb(255,85,0)" stroke-width="1" width="243" x="757" y="40"><title>leveldb::ReadFileToString~1</title></rect><text fill="black" pointer-events="none" x="759" y="55">leveldb::ReadFileToString..<title>leveldb::ReadFileToString~1</title></text><rect class="framebox" fill="white" height="20" id="framebox-14" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="1018" y="40"><title>openat</title></rect><text fill="black" pointer-events="none" x="1020" y="55">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-15" stroke="rgb(0,0,180)" stroke-width="1" width="36" x="1090" y="40"><title>read</title></rect><text fill="black" pointer-events="none" x="1092" y="55">read<title>read</title></text><rect class="framebox" fill="white" height="20" id="framebox-16" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="1144" y="40"><title>close</title></rect><text fill="black" pointer-events="none" x="1146" y="55">close<title>close</title></text><rect class="framebox" fill="white" height="20" id="framebox-17" stroke="rgb(255,42,0)" stroke-width="1" width="468" x="739" y="60"><title>leveldb::VersionSet::Recover~1</title></rect><text fill="black" pointer-events="none" x="741" y="75">leveldb::VersionSet::Recover~1<title>leveldb::VersionSet::Recover~1</title></text><rect class="framebox" fill="white" height="20" id="framebox-18" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="1225" y="60"><title>openat</title></rect><text fill="black" pointer-events="none" x="1227" y="75">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-19" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="1297" y="60"><title>fstat</title></rect><text fill="black" pointer-events="none" x="1299" y="75">fstat<title>fstat</title></text><rect class="framebox" fill="white" height="20" id="framebox-20" stroke="rgb(0,0,180)" stroke-width="1" width="90" x="1360" y="60"><title>getdents64</title></rect><text fill="black" pointer-events="none" x="1362" y="75">getdents64<title>getdents64</title></text><line stroke="black" stroke-width="2" x1="1354" x2="1354" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="1456" x2="1456" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="1354" x2="1363" y1="50" y2="50" /><line stroke="black" stroke-width="2" x1="1456" x2="1447" y1="50" y2="50" /><text fill="black" x="1461" y="70">x 2</text><rect class="framebox" fill="white" height="20" id="framebox-21" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="1504" y="60"><title>close</title></rect><text fill="black" pointer-events="none" x="1506" y="75">close<title>close</title></text><rect class="framebox" fill="white" height="20" id="framebox-22" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="1567" y="60"><title>openat</title></rect><text fill="black" pointer-events="none" x="1569" y="75">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-23" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="1657" y="40"><title>openat</title></rect><text fill="black" pointer-events="none" x="1659" y="55">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-24" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="1729" y="40"><title>fstat</title></rect><text fill="black" pointer-events="none" x="1731" y="55">fstat<title>fstat</title></text><line stroke="black" stroke-width="2" x1="1723" x2="1723" y1="30" y2="60" /><line stroke="black" stroke-width="2" x1="1780" x2="1780" y1="30" y2="60" /><line stroke="black" stroke-width="2" x1="1723" x2="1732" y1="30" y2="30" /><line stroke="black" stroke-width="2" x1="1780" x2="1771" y1="30" y2="30" /><text fill="black" x="1785" y="50">x 2</text><rect class="framebox" fill="white" height="20" id="framebox-25" stroke="rgb(0,0,180)" stroke-width="1" width="36" x="1828" y="40"><title>read</title></rect><text fill="black" pointer-events="none" x="1830" y="55">read<title>read</title></text><rect class="framebox" fill="white" height="20" id="framebox-26" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="1882" y="40"><title>lseek</title></rect><text fill="black" pointer-events="none" x="1884" y="55">lseek<title>lseek</title></text><rect class="framebox" fill="white" height="20" id="framebox-27" stroke="rgb(0,0,180)" stroke-width="1" width="36" x="1945" y="40"><title>read</title></rect><text fill="black" pointer-events="none" x="1947" y="55">read<title>read</title></text><rect class="framebox" fill="white" height="20" id="framebox-28" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="1999" y="40"><title>close</title></rect><text fill="black" pointer-events="none" x="2001" y="55">close<title>close</title></text><rect class="framebox" fill="white" height="20" id="framebox-29" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="2062" y="40"><title>fstat</title></rect><text fill="black" pointer-events="none" x="2064" y="55">fstat<title>fstat</title></text><rect class="framebox" fill="white" height="20" id="framebox-30" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="2125" y="40"><title>write</title></rect><text fill="black" pointer-events="none" x="2127" y="55">write<title>write</title></text><rect class="framebox" fill="white" height="20" id="framebox-31" stroke="rgb(255,42,0)" stroke-width="1" width="549" x="1639" y="60"><title>leveldb::PosixLogger::Logv~1</title></rect><text fill="black" pointer-events="none" x="1641" y="75">leveldb::PosixLogger::Logv~1<title>leveldb::PosixLogger::Logv~1</title></text><rect class="framebox" fill="white" height="20" id="framebox-32" stroke="rgb(0,0,180)" stroke-width="1" width="36" x="2206" y="60"><title>read</title></rect><text fill="black" pointer-events="none" x="2208" y="75">read<title>read</title></text><line stroke="black" stroke-width="2" x1="2200" x2="2200" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="2248" x2="2248" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="2200" x2="2209" y1="50" y2="50" /><line stroke="black" stroke-width="2" x1="2248" x2="2239" y1="50" y2="50" /><text fill="black" x="2253" y="70">x 4</text><rect class="framebox" fill="white" height="20" id="framebox-33" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="2296" y="60"><title>close</title></rect><text fill="black" pointer-events="none" x="2298" y="75">close<title>close</title></text><rect class="framebox" fill="white" height="20" id="framebox-34" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="2377" y="40"><title>write</title></rect><text fill="black" pointer-events="none" x="2379" y="55">write<title>write</title></text><rect class="framebox" fill="white" height="20" id="framebox-35" stroke="rgb(255,42,0)" stroke-width="1" width="81" x="2359" y="60"><title>leveldb::PosixLogger::Logv~2</title></rect><text fill="black" pointer-events="none" x="2361" y="75">leveldb..<title>leveldb::PosixLogger::Logv~2</title></text><rect class="framebox" fill="white" height="20" id="framebox-36" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="2458" y="60"><title>openat</title></rect><text fill="black" pointer-events="none" x="2460" y="75">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-37" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="2530" y="60"><title>write</title></rect><text fill="black" pointer-events="none" x="2532" y="75">write<title>write</title></text><line stroke="black" stroke-width="2" x1="2524" x2="2524" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="2581" x2="2581" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="2524" x2="2533" y1="50" y2="50" /><line stroke="black" stroke-width="2" x1="2581" x2="2572" y1="50" y2="50" /><text fill="black" x="2586" y="70">x 24</text><rect class="framebox" fill="white" height="20" id="framebox-38" stroke="rgb(0,0,180)" stroke-width="1" width="81" x="2638" y="60"><title>fdatasync</title></rect><text fill="black" pointer-events="none" x="2640" y="75">fdatasync<title>fdatasync</title></text><rect class="framebox" fill="white" height="20" id="framebox-39" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="2737" y="60"><title>close</title></rect><text fill="black" pointer-events="none" x="2739" y="75">close<title>close</title></text><rect class="framebox" fill="white" height="20" id="framebox-40" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="2800" y="60"><title>openat</title></rect><text fill="black" pointer-events="none" x="2802" y="75">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-41" stroke="rgb(0,0,180)" stroke-width="1" width="36" x="2872" y="60"><title>stat</title></rect><text fill="black" pointer-events="none" x="2874" y="75">stat<title>stat</title></text><rect class="framebox" fill="white" height="20" id="framebox-42" stroke="rgb(0,0,180)" stroke-width="1" width="36" x="2926" y="60"><title>mmap</title></rect><text fill="black" pointer-events="none" x="2928" y="75">mmap<title>mmap</title></text><rect class="framebox" fill="white" height="20" id="framebox-43" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="2980" y="60"><title>close</title></rect><text fill="black" pointer-events="none" x="2982" y="75">close<title>close</title></text><rect class="framebox" fill="white" height="20" id="framebox-44" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="3061" y="40"><title>write</title></rect><text fill="black" pointer-events="none" x="3063" y="55">write<title>write</title></text><rect class="framebox" fill="white" height="20" id="framebox-45" stroke="rgb(255,42,0)" stroke-width="1" width="81" x="3043" y="60"><title>leveldb::PosixLogger::Logv~3</title></rect><text fill="black" pointer-events="none" x="3045" y="75">leveldb..<title>leveldb::PosixLogger::Logv~3</title></text><rect class="framebox" fill="white" height="20" id="framebox-46" stroke="rgb(255,0,0)" stroke-width="1" width="2628" x="514" y="80"><title>leveldb::DBImpl::Recover~1</title></rect><text fill="black" pointer-events="none" x="516" y="95">leveldb::DBImpl::Recover~1<title>leveldb::DBImpl::Recover~1</title></text><rect class="framebox" fill="white" height="20" id="framebox-47" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="3160" y="80"><title>openat</title></rect><text fill="black" pointer-events="none" x="3162" y="95">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-48" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="3250" y="60"><title>openat</title></rect><text fill="black" pointer-events="none" x="3252" y="75">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-49" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="3340" y="40"><title>write</title></rect><text fill="black" pointer-events="none" x="3342" y="55">write<title>write</title></text><line stroke="black" stroke-width="2" x1="3334" x2="3334" y1="30" y2="60" /><line stroke="black" stroke-width="2" x1="3391" x2="3391" y1="30" y2="60" /><line stroke="black" stroke-width="2" x1="3334" x2="3343" y1="30" y2="30" /><line stroke="black" stroke-width="2" x1="3391" x2="3382" y1="30" y2="30" /><text fill="black" x="3396" y="50">x 1~2</text><rect class="framebox" fill="white" height="20" id="framebox-50" stroke="rgb(255,42,0)" stroke-width="1" width="135" x="3322" y="60"><title>leveldb::log::Writer::AddRecord~1</title></rect><text fill="black" pointer-events="none" x="3324" y="75">leveldb::log:..<title>leveldb::log::Writer::AddRecord~1</title></text><line stroke="black" stroke-width="2" x1="3316" x2="3316" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="3463" x2="3463" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="3316" x2="3325" y1="50" y2="50" /><line stroke="black" stroke-width="2" x1="3463" x2="3454" y1="50" y2="50" /><text fill="black" x="3468" y="70">x 2</text><rect class="framebox" fill="white" height="20" id="framebox-51" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="3511" y="60"><title>openat</title></rect><text fill="black" pointer-events="none" x="3513" y="75">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-52" stroke="rgb(0,0,180)" stroke-width="1" width="81" x="3583" y="60"><title>fdatasync</title></rect><text fill="black" pointer-events="none" x="3585" y="75">fdatasync<title>fdatasync</title></text><rect class="framebox" fill="white" height="20" id="framebox-53" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="3682" y="60"><title>close</title></rect><text fill="black" pointer-events="none" x="3684" y="75">close<title>close</title></text><rect class="framebox" fill="white" height="20" id="framebox-54" stroke="rgb(0,0,180)" stroke-width="1" width="81" x="3745" y="60"><title>fdatasync</title></rect><text fill="black" pointer-events="none" x="3747" y="75">fdatasync<title>fdatasync</title></text><rect class="framebox" fill="white" height="20" id="framebox-55" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="3880" y="20"><title>openat</title></rect><text fill="black" pointer-events="none" x="3882" y="35">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-56" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="3952" y="20"><title>write</title></rect><text fill="black" pointer-events="none" x="3954" y="35">write<title>write</title></text><rect class="framebox" fill="white" height="20" id="framebox-57" stroke="rgb(0,0,180)" stroke-width="1" width="81" x="4015" y="20"><title>fdatasync</title></rect><text fill="black" pointer-events="none" x="4017" y="35">fdatasync<title>fdatasync</title></text><rect class="framebox" fill="white" height="20" id="framebox-58" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="4114" y="20"><title>close</title></rect><text fill="black" pointer-events="none" x="4116" y="35">close<title>close</title></text><rect class="framebox" fill="white" height="20" id="framebox-59" stroke="rgb(255,85,0)" stroke-width="1" width="315" x="3862" y="40"><title>leveldb::WriteStringToFileSync~1</title></rect><text fill="black" pointer-events="none" x="3864" y="55">leveldb::WriteStringToFileSync~1<title>leveldb::WriteStringToFileSync~1</title></text><rect class="framebox" fill="white" height="20" id="framebox-60" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="4195" y="40"><title>rename</title></rect><text fill="black" pointer-events="none" x="4197" y="55">rename<title>rename</title></text><rect class="framebox" fill="white" height="20" id="framebox-61" stroke="rgb(255,42,0)" stroke-width="1" width="423" x="3844" y="60"><title>leveldb::SetCurrentFile~1</title></rect><text fill="black" pointer-events="none" x="3846" y="75">leveldb::SetCurrentFile~1<title>leveldb::SetCurrentFile~1</title></text><rect class="framebox" fill="white" height="20" id="framebox-62" stroke="rgb(255,0,0)" stroke-width="1" width="1053" x="3232" y="80"><title>leveldb::VersionSet::LogAndApply~1</title></rect><text fill="black" pointer-events="none" x="3234" y="95">leveldb::VersionSet::LogAndApply~1<title>leveldb::VersionSet::LogAndApply~1</title></text><rect class="framebox" fill="white" height="20" id="framebox-63" stroke="rgb(0,0,180)" stroke-width="1" width="54" x="4321" y="60"><title>openat</title></rect><text fill="black" pointer-events="none" x="4323" y="75">openat<title>openat</title></text><rect class="framebox" fill="white" height="20" id="framebox-64" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="4393" y="60"><title>fstat</title></rect><text fill="black" pointer-events="none" x="4395" y="75">fstat<title>fstat</title></text><rect class="framebox" fill="white" height="20" id="framebox-65" stroke="rgb(0,0,180)" stroke-width="1" width="90" x="4456" y="60"><title>getdents64</title></rect><text fill="black" pointer-events="none" x="4458" y="75">getdents64<title>getdents64</title></text><line stroke="black" stroke-width="2" x1="4450" x2="4450" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="4552" x2="4552" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="4450" x2="4459" y1="50" y2="50" /><line stroke="black" stroke-width="2" x1="4552" x2="4543" y1="50" y2="50" /><text fill="black" x="4557" y="70">x 2</text><rect class="framebox" fill="white" height="20" id="framebox-66" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="4600" y="60"><title>close</title></rect><text fill="black" pointer-events="none" x="4602" y="75">close<title>close</title></text><rect class="framebox" fill="white" height="20" id="framebox-67" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="4681" y="40"><title>write</title></rect><text fill="black" pointer-events="none" x="4683" y="55">write<title>write</title></text><rect class="framebox" fill="white" height="20" id="framebox-68" stroke="rgb(255,42,0)" stroke-width="1" width="81" x="4663" y="60"><title>leveldb::PosixLogger::Logv~4</title></rect><text fill="black" pointer-events="none" x="4665" y="75">leveldb..<title>leveldb::PosixLogger::Logv~4</title></text><line stroke="black" stroke-width="2" x1="4657" x2="4657" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="4750" x2="4750" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="4657" x2="4666" y1="50" y2="50" /><line stroke="black" stroke-width="2" x1="4750" x2="4741" y1="50" y2="50" /><text fill="black" x="4755" y="70">x 2</text><rect class="framebox" fill="white" height="20" id="framebox-69" stroke="rgb(255,0,0)" stroke-width="1" width="495" x="4303" y="80"><title>leveldb::DBImpl::RemoveObsoleteFiles~1</title></rect><text fill="black" pointer-events="none" x="4305" y="95">leveldb::DBImpl::RemoveObsoleteFiles~1<title>leveldb::DBImpl::RemoveObsoleteFiles~1</title></text><rect class="framebox" fill="white" height="20" id="framebox-70" stroke="rgb(85,0,0)" stroke-width="1" width="4563" x="253" y="100"><title>leveldb::DB::Open~1</title></rect><text fill="black" pointer-events="none" x="255" y="115">leveldb::DB::Open~1<title>leveldb::DB::Open~1</title></text><rect class="framebox" fill="white" height="20" id="framebox-71" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="4870" y="60"><title>write</title></rect><text fill="black" pointer-events="none" x="4872" y="75">write<title>write</title></text><line stroke="black" stroke-width="2" x1="4864" x2="4864" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="4921" x2="4921" y1="50" y2="80" /><line stroke="black" stroke-width="2" x1="4864" x2="4873" y1="50" y2="50" /><line stroke="black" stroke-width="2" x1="4921" x2="4912" y1="50" y2="50" /><text fill="black" x="4926" y="70">x 1~2</text><rect class="framebox" fill="white" height="20" id="framebox-72" stroke="rgb(255,0,0)" stroke-width="1" width="135" x="4852" y="80"><title>leveldb::log::Writer::AddRecord~3</title></rect><text fill="black" pointer-events="none" x="4854" y="95">leveldb::log:..<title>leveldb::log::Writer::AddRecord~3</title></text><line stroke="black" stroke-width="2" x1="4846" x2="4846" y1="70" y2="100" /><line stroke="black" stroke-width="2" x1="4993" x2="4993" y1="70" y2="100" /><line stroke="black" stroke-width="2" x1="4846" x2="4855" y1="70" y2="70" /><line stroke="black" stroke-width="2" x1="4993" x2="4984" y1="70" y2="70" /><text fill="black" x="4998" y="90">x 1000</text><rect class="framebox" fill="white" height="20" id="framebox-73" stroke="rgb(85,0,0)" stroke-width="1" width="234" x="4834" y="100"><title>do_ycsb~1</title></rect><text fill="black" pointer-events="none" x="4836" y="115">do_ycsb~1<title>do_ycsb~1</title></text><rect class="framebox" fill="white" height="20" id="framebox-74" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="5086" y="100"><title>fstat</title></rect><text fill="black" pointer-events="none" x="5088" y="115">fstat<title>fstat</title></text><rect class="framebox" fill="white" height="20" id="framebox-75" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="5149" y="100"><title>write</title></rect><text fill="black" pointer-events="none" x="5151" y="115">write<title>write</title></text><line stroke="black" stroke-width="2" x1="5143" x2="5143" y1="90" y2="120" /><line stroke="black" stroke-width="2" x1="5200" x2="5200" y1="90" y2="120" /><line stroke="black" stroke-width="2" x1="5143" x2="5152" y1="90" y2="90" /><line stroke="black" stroke-width="2" x1="5200" x2="5191" y1="90" y2="90" /><text fill="black" x="5205" y="110">x 2</text><rect class="framebox" fill="white" height="20" id="framebox-76" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="5266" y="80"><title>write</title></rect><text fill="black" pointer-events="none" x="5268" y="95">write<title>write</title></text><line stroke="black" stroke-width="2" x1="5260" x2="5260" y1="70" y2="100" /><line stroke="black" stroke-width="2" x1="5317" x2="5317" y1="70" y2="100" /><line stroke="black" stroke-width="2" x1="5260" x2="5269" y1="70" y2="70" /><line stroke="black" stroke-width="2" x1="5317" x2="5308" y1="70" y2="70" /><text fill="black" x="5322" y="90">x 16</text><rect class="framebox" fill="white" height="20" id="framebox-77" stroke="rgb(85,0,0)" stroke-width="1" width="126" x="5248" y="100"><title>leveldb_stats~1</title></rect><text fill="black" pointer-events="none" x="5250" y="115">leveldb_stat..<title>leveldb_stats~1</title></text><rect class="framebox" fill="white" height="20" id="framebox-78" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="5410" y="80"><title>fcntl</title></rect><text fill="black" pointer-events="none" x="5412" y="95">fcntl<title>fcntl</title></text><rect class="framebox" fill="white" height="20" id="framebox-79" stroke="rgb(0,0,180)" stroke-width="1" width="45" x="5473" y="80"><title>close</title></rect><text fill="black" pointer-events="none" x="5475" y="95">close<title>close</title></text><line stroke="black" stroke-width="2" x1="5467" x2="5467" y1="70" y2="100" /><line stroke="black" stroke-width="2" x1="5524" x2="5524" y1="70" y2="100" /><line stroke="black" stroke-width="2" x1="5467" x2="5476" y1="70" y2="70" /><line stroke="black" stroke-width="2" x1="5524" x2="5515" y1="70" y2="70" /><text fill="black" x="5529" y="90">x 4</text><rect class="framebox" fill="white" height="20" id="framebox-80" stroke="rgb(85,0,0)" stroke-width="1" width="180" x="5392" y="100"><title>leveldb::DBImpl::~DBImpl~1</title></rect><text fill="black" pointer-events="none" x="5394" y="115">leveldb::DBImpl::~..<title>leveldb::DBImpl::~DBImpl~1</title></text><rect class="framebox" fill="white" height="20" id="framebox-81" stroke="rgb(42,0,0)" stroke-width="1" width="5580" x="10" y="120"><title>main~1</title></rect><text fill="black" pointer-events="none" x="12" y="135">main~1<title>main~1</title></text></svg>
+</div>
+
+<!-- Text region for detailed information. -->
+<p>
+    Click on a frame to display detailed info below... <br>
+    (For a frame inside repetitive sequence, info displayed is of the first instance in sequence!)
+</p>
+<p>
+    <b>Chosen frame</b>: <code id="chosen_frame_name">None</code> <br>
+    <b>Type</b>: <code id="chosen_frame_type">N/A</code> <br>
+</p>
+<p>
+    <span id="chosen_frame_info_header" style="font-weight:bold;">Full info</span>:
+    <pre id="chosen_frame_info">N/A</pre>
+    <!-- use pre tag to preserve leading whitespaces -->
+</p>
+
+</body>
+
+</html>
